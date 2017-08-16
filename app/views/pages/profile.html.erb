@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h1>Header</h1>
+  <h1><%= @user_name %></h1>
 </div>
 
 <div class="row">
@@ -12,11 +12,13 @@
   </div>
 
   <div class="col-xs-6">
+    <% @posts.each do |post| %>
     <div class="panel panel-default">
       <div class="panel-body">
-        <p>Tweets</p>
+        <p><%= post.content %></p>
       </div>
     </div>
+    <% end %>
   </div>
 
   <div class="col-xs-3">
