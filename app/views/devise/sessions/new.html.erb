@@ -6,6 +6,9 @@
 
       <div class="col-md-4">
         <div class="panel panel-default">
+          <% if alert.present? %>
+            <span class="col-md-12 profile-margin error-text"><%= fa_icon("exclamation-circle") + ' ' + alert %></span>
+          <% end %>
           <div class="row sign_in_panel form-group margin-top">
               <%= f.email_field :email, autofocus: true, placeholder: "Phone,Email or Username", class: "form-control" %>
           </div>

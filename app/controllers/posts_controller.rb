@@ -1,18 +1,18 @@
 class PostsController < ApplicationController
 
   def new
-    @post = Post.new
+    @post = post_service.build_post
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
     respond_to do |format|
-      if @post.save
-        format.html {redirect_to home_path, notice: "Post saved successfully"}
+      format.html {
+      if post_service.create_post(attrs: post_params)
+        redirect_to home_path, notice: "Post saved successfully"
       else
-        format.html {redirect_to home_path, alert: "Post not saved"}
+        redirect_to home_path, notice: "Post not saved"
       end
+      }
     end
   end
 

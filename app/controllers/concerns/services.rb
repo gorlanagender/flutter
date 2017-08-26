@@ -1,0 +1,16 @@
+# CLEAN ARCHITECTURE
+#
+# create a method here that will instantiate a service
+# we can extend as needed
+#
+
+module Services
+  extend ActiveSupport::Concern
+  included do
+
+    def post_service
+      @post_service ||= Services::PostService.new(current_user)
+    end
+
+  end
+end

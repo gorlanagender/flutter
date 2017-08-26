@@ -1,9 +1,18 @@
 class ApplicationController < ActionController::Base
+  include Services
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
+
+  def after_sign_in_path_for(_)
+    home_path
+  end
+
+  def after_sign_out_path_for(_)
+    new_user_session_path
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,

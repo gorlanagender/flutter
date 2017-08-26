@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'pages#index'
+  devise_scope :user do
+    get 'sign_in' => 'devise/sessions#new'
+  end
   resource 'posts'
   # Define routes for Pages.
   get 'home' => 'pages#home'

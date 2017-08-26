@@ -11,9 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  */
-@import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 .navbar {
   background-color: white;
@@ -69,6 +69,10 @@ body {
 
 .text-bold {
   font-weight: bold;
+}
+
+.error-text {
+  color: red;
 }
 
 .links {

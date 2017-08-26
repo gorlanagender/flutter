@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
   def index
-    @posts = Post.where(user_id: User.find_by_username(params[:id]).id)
+    @posts = post_service.get_all_posts
   end
 
   def home
-    @posts = Post.where(user_id: current_user.id)
-    @new_post = Post.new
+    @posts = post_service.get_all_posts
+    @new_post = post_service.build_post
   end
 
   def profile
@@ -14,11 +14,11 @@ class PagesController < ApplicationController
     else
       redirect_to root_path, alert: "User not found"
     end
-    @posts = Post.all.where(user_id: User.find_by_username(@user_name).id)
-    @new_post = Post.new
+    @posts = post_service.get_all_posts
+    @new_post = post_service.build_post
   end
 
   def explore
-    @posts = Post.all.where(user_id: current_user.id)
+    @posts = post_service.get_all_posts
   end
 end
