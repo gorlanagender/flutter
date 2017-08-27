@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,10 +12,8 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationship, source: :followed
   has_many :followers, through: :passive_relationship, source: :follower
 
-
-  def unfollow(other)
-    active_relationship.find(followed_id: other.id).destroy
-  end
+  validates_integrity_of  :avatar
+  validates_processing_of :avatar
 
   def following?(other)
     following.include?(other)

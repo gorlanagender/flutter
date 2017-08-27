@@ -1,6 +1,6 @@
 <div class="row profile-panel-margin">
   <div class="col-xs-3">
-    <img src="/user2.jpg" , class="img-circle profile-image">
+    <%= image_tag(@user.avatar_url,  class: "img-circle profile-image") %>
     <div class="row col-md-12 top-margin">
       <center>
         <span class="text-bold" style="font-size: 20px;"><%= @user.username %></span>
@@ -14,7 +14,7 @@
           <div class="panel-body row">
             <div class="row">
               <div class="col-xs-2">
-                <img src="/user2.jpg" , class="img-circle" style="margin-left: 12px;height: 60px;width: 60px;">
+                <%= image_tag(@user.avatar_url,  class: "img-circle", style: "margin-left: 12px;height: 60px;width: 60px;") %>
               </div>
               <div class="col-xs-10">
                 <div class="row col-xs-12">
