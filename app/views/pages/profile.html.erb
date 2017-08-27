@@ -1,23 +1,26 @@
 <div class="row profile-panel-margin">
   <div class="col-xs-3">
-    <img src="/user2.jpg" , class="img-rounded profile-image">
+    <img src="/user2.jpg" , class="img-circle profile-image">
     <div class="row col-md-12 top-margin">
-      <span class="text-bold" style="font-size: 20px;"><%= current_user.username %></span>
+      <center>
+        <span class="text-bold" style="font-size: 20px;"><%= @user.username %></span>
+      </center>
     </div>
   </div>
 
   <div class="col-xs-6">
-    <%= render 'posts/new_post' %>
     <% @posts.each do |post| %>
-        <div class="panel panel-default post-panel">
+        <div class="panel panel-default panel-success post-panel">
           <div class="panel-body row">
             <div class="row">
-              <div class="col-xs-1">
-                <img src="/user2.jpg" , class="img-rounded" style="margin-left: 5px;height: 40px;width: 40px;">
+              <div class="col-xs-2">
+                <img src="/user2.jpg" , class="img-circle" style="margin-left: 12px;height: 60px;width: 60px;">
               </div>
-              <div class="col-xs-11">
+              <div class="col-xs-10">
                 <div class="row col-xs-12">
-                  <span class="text-bold"><%= post.user.username %></span>&nbsp;
+                  <span class="text-bold">
+                    <%= link_to(post.user.username, url_for("/user/#{post.user.username}")) %>
+                  </span>&nbsp;
                   <span class="text-muted"><%= " - #{post.created_at.to_formatted_s(:short)}" %></span>
                 </div>
                 <div class="row col-xs-12 content-margin">
@@ -26,17 +29,16 @@
               </div>
             </div>
             <div class="row top-margin">
-              <span class="col-xs-1"></span>
+              <span class="col-xs-2"></span>
               <span class="col-xs-2 links"><%= fa_icon("reply") %></span>
-              <span class="col-xs-2 links"><%= fa_icon("comment") %></span>
-              <span class="col-xs-2 links"><%= fa_icon("heart") %></span>
-              <span class="col-xs-1 links"><%= fa_icon("ellipsis-h") %></span>
-              <span class="col-xs-4"><a href="#"><%= "View Conversation" %></a></span>
+              <span class="col-xs-3 links"><%= fa_icon("comment") %></span>
+              <span class="col-xs-3 links"><%= fa_icon("heart") %></span>
+              <span class="col-xs-2 links"><%= fa_icon("ellipsis-h") %></span>
             </div>
           </div>
         </div>
     <% end %>
-    <div class="panel panel-default post-panel">
+    <div class="panel panel-default panel-success post-panel">
       <div class="row footer-panel">
         <span class="col-xs-5"></span>
         <span class="text-bold"><a href="#top"><%= "Back To Top" %> <%= fa_icon("arrow-up") %></a></span>
@@ -47,8 +49,11 @@
   <div class="col-xs-3">
     <div class="panel panel-default">
       <div class="panel-body">
-        <span class="links">@2017 TwitterNew About Help Terms Privacy Cookies Ads
-          Info Brand Blog Status Apps Jobs Advertise Business Media Developers </span>
+        <% @users.each do |user| %>
+        <div class="row col-md-12 margin-top">
+          <%= link_to(user.username, url_for("/user/#{user.username}")) %>
+        </div>
+        <% end %>
       </div>
     </div>
     <div class="panel panel-default">

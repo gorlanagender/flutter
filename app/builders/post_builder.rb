@@ -2,9 +2,9 @@ module Builders
   class PostBuilder
 
     def from_attributes(attrs:, user_id:)
-      Post.tap {|post|
+      Post.new.tap {|post|
         post.attributes = attrs
-        post.create_user_id = user_id
+        post.user_id = user_id
       }
     end
 

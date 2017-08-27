@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'sign_in' => 'devise/sessions#new'
   end
-  resource 'posts'
+  resource 'posts' do
+    member do
+      post :follow, :un_follow
+    end
+  end
   # Define routes for Pages.
   get 'home' => 'pages#home'
   get 'user/:id' => 'pages#profile'

@@ -4,6 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+gem 'carrierwave', '~> 0.11.2'
 gem 'jquery-rails'
 gem 'devise', '~> 4.2'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'

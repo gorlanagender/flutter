@@ -16,10 +16,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def follow
+   post_service.follow_user(attrs: follow_params)
+   redirect_to request.referrer
+  end
+
+  def un_follow
+   post_service.unfollow_user(attrs: follow_params)
+   redirect_to request.referrer
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:content)
+  end
+
+  def follow_params
+    params.permit(:followed_id)
   end
 
 end
