@@ -16,7 +16,7 @@ module Services
     end
 
     def get_top_users
-      post_storage.get_top_users(user_id: user.id)
+      post_storage.get_top_users(user: user)
     end
 
     def follow_user(attrs:)

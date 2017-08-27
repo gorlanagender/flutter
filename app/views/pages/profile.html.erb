@@ -49,9 +49,24 @@
   <div class="col-xs-3">
     <div class="panel panel-default">
       <div class="panel-body">
+        <h3 style="margin-top: -5px;">Who To Follow?</h3>
         <% @users.each do |user| %>
-        <div class="row col-md-12 margin-top">
-          <%= link_to(user.username, url_for("/user/#{user.username}")) %>
+        <div class="row">
+          <hr>
+        <div class="col-md-4">
+          <%= image_tag(user.avatar_url,  class: "img-circle", style: "height: 50px;width: 50px;") %>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <%= link_to(user.username, url_for("/user/#{user.username}"), class: "fontcolor text-bold ellipsi") %>
+          </div>
+          <div class="row">
+            <%= form_tag(follow_posts_url) do %>
+                <%= hidden_field_tag :followed_id, user.id  %>
+                <%= submit_tag "Follow", class: "btn btn_default btn_hover" %>
+            <% end %>
+          </div>
+        </div>
         </div>
         <% end %>
       </div>

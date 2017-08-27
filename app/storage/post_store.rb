@@ -16,8 +16,10 @@ module Storage
       Post.where(user_id: user_id)
     end
 
-    def get_top_users(user_id:)
-      User.all.where.not(id: user_id).limit(5)
+    def get_top_users(user:)
+      user_ids = user.active_relationship.map(&:followed_id)
+      user_ids << user.id
+      User.all.where.not(id: user_ids).limit(5)
     end
 
     def follow_user(attrs:, user:)

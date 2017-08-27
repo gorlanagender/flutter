@@ -127,3 +127,31 @@ body {
   background-color:#E5F2F7;
 }
 
+.fontcolor{
+  color: black;
+}
+
+.ellipsi {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn_hover:hover {
+  background-color: #E5F2F7;
+  color: #337ab7;
+}
+
+.btn_default {
+  background-color: white;
+  color: #337ab7;
+  border-color: #337ab7;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+.btn_unfollow:hover {
+  background-color: #e0245e;
+  color: white;
+}
+

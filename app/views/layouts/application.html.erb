@@ -17,17 +17,20 @@
             <div class="container profile-margin">
               <div class="col-xs-3"></div>
               <div class="col-xs-6">
-                <div class="col-xs-2">
+                <div class="col-xs-1">
                   <div class="row"><span class="text-bold text-muted"><%= "Posts" %></span></div>
-                  <div class="row"><span class="text-bold profile-font"><%= @user.posts.size %></span></div>
+                  <div class="row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-10 text-bold profile-font"><%= @user.posts.size %></div>
+                  </div>
                 </div>
                 <div class="col-xs-2">
+                <center>
                 <div class="row"><span class="text-bold text-muted"><%= "Following" %></span></div>
                 <div class="row">
-                  <center>
                   <span class="text-bold profile-font"><%= @user.active_relationship.size %></span>
-                  </center>
                 </div>
+                </center>
                 </div>
                 <div class="col-xs-2">
                   <div class="row"><span class="text-bold text-muted"><%= "Followers" %></span></div>
@@ -36,17 +39,17 @@
               </div>
               <div class="pull-right">
                 <% if current_user.id == @user.id %>
-                  <button type="button" class="btn btn-primary active"><%= link_to("Edit Profile", edit_user_registration_path, class: "welcome-msg") %></button>
+                  <button type="button" class="btn btn_default btn_hover"><%= link_to("Edit Profile", edit_user_registration_path) %></button>
                 <% else %>
                     <% if current_user.following?(@user) %>
                         <%= form_tag(un_follow_posts_url) do %>
                             <%= hidden_field_tag :followed_id, @user.id  %>
-                            <%= submit_tag "Unfollow", class: "btn btn-danger active" %>
+                            <%= submit_tag "Unfollow", class: "btn btn_default btn_unfollow" %>
                         <% end %>
                     <% else %>
                     <%= form_tag(follow_posts_url) do %>
                        <%= hidden_field_tag :followed_id, @user.id  %>
-                       <%= submit_tag "Follow", class: "btn btn-success active" %>
+                       <%= submit_tag "Follow", class: "btn btn_default btn_hover" %>
                     <% end %>
                     <% end %>
               <% end %>
