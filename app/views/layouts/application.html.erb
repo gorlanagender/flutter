@@ -12,7 +12,7 @@
     <% if params[:id].present? %>
       <% url = '/user/' + params[:id] %>
       <% if current_page?(url) %>
-        <img src="/banner.jpg" class="profile-banner">
+          <%= image_tag("/profile_banner.png",  class: "profile-banner") %>
           <div class="panel panel-default">
             <div class="container profile-margin">
               <div class="col-xs-3"></div>
@@ -61,7 +61,7 @@
           background-image: linear-gradient(
               rgba(0, 0, 0, 0.3),
               rgba(0, 0, 0, 0.3)
-          ), url("/bg.png");
+          ), url('/body_bg.png');
           -webkit-background-size: cover;
           -moz-background-size: cover;
           -o-background-size: cover;
