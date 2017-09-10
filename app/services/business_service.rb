@@ -13,5 +13,9 @@ module Services
     def post_storage
       @post_storage ||= engine.post_store
     end
+
+    def user_storage
+      @user_storage ||= engine.user_store
+    end
   end
 end

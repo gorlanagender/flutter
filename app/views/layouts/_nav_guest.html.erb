@@ -13,19 +13,19 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/home">Home</a></li>
-        <li><a href="/home">Moments</a></li>
+        <li><a href="/home"><%= t('labels.home') %></a></li>
+        <li><a href="/home"><%= t('labels.moments') %></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigation
             <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Help</a></li>
+            <li><a href="#"><%= t('labels.help') %></a></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to('Sign Up', new_user_registration_path) %></li>
+            <li><%= link_to(t('labels.sign_up'), new_user_registration_path) %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to('Sign In', new_user_session_path) %></li>
+            <li><%= link_to(t('labels.sign_in'), new_user_session_path) %></li>
           </ul>
         </li>
       </ul>

@@ -30,4 +30,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  labels:
+    twitternew: "TwitterNew"
+    toggle_navigation : "Toggle Navigation"
+    home: "Home"
+    moments: "Moments"
+    help: "Help"
+    sign_up: "Sign Up"
+    sign_in: "Sign In"
+    explore: "Explore"
+    profile: "Profile"
+    settings: "Settings"
+    logout: "Log Out"
+    add_tweet: "Add Tweet"
+    index_msg_line1: "Connect With Buddies.Chat With New Friends."
+    index_msg_line2: "Share Your Adventures. Have Fun!"
+    index_msg_line3: "Just Like A Blog With Less Characters."
+    welcome_msg: "Welcome to Twitter New."
+    twitter_links_msg: "@2017 TwitterNew About Help Terms Privacy Cookies Ads Info Brand Blog Status Apps Jobs Advertise Business Media Developers"

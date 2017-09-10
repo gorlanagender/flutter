@@ -9,15 +9,12 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @user = User.find_by_username(params[:id])
-    if @user
-      @user_name = params[:id]
-    else
-      redirect_to root_path, alert: "User not found"
-    end
+    @user = user_service.get_profile(name: params[:id])
     @posts = post_service.get_all_posts(user_id: @user.id)
     @new_post = post_service.build_post
-    @users = post_service.get_top_users
+    @users = user_service.get_top_users
+  rescue Exceptions::UserExceptions::RecordNotFound
+    redirect_to home_path, alert: 'User not found'
   end
 
   def explore

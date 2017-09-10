@@ -5,15 +5,12 @@ class PostsController < ApplicationController
   end
 
   def create
+    @post = post_service.create_post(attrs: post_params)
     respond_to do |format|
-      format.html {
-      if post_service.create_post(attrs: post_params)
-        redirect_to home_path, notice: "Post saved successfully"
-      else
-        redirect_to home_path, notice: "Post not saved"
-      end
-      }
+      format.html { redirect_to home_path, notice: 'Post saved successfully' }
     end
+  rescue ActiveRecord::RecordInvalid => e
+    redirect_to home_path, alert: "Post not saved - #{e.message}"
   end
 
   def follow

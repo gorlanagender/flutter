@@ -12,5 +12,9 @@ module Services
       @post_service ||= Services::PostService.new(current_user)
     end
 
+    def user_service
+      @user_service ||= Services::UserService.new(current_user)
+    end
+
   end
 end
