@@ -32,7 +32,7 @@ module Presenters
       private
 
       def collection?(object)
-        [Array, ActiveRecord::Relation].any? { |klass| object.is_a?(klass) }
+        [Array, ActiveRecord::Relation].any? {|klass| object.is_a?(klass)}
       end
     end
   end
@@ -74,10 +74,5 @@ module Presenters
 
   end
 end
-
-
-
-
-
 
 

@@ -2,7 +2,7 @@ module Services
   class BusinessService
     attr_reader :user
 
-    def initialize(user)
+    def initialize(user = nil)
       @user = user
     end
 
@@ -16,6 +16,10 @@ module Services
 
     def user_storage
       @user_storage ||= engine.user_store
+    end
+
+    def api_storage
+      @api_storage ||= engine.api_store
     end
   end
 end

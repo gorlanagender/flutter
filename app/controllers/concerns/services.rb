@@ -16,5 +16,9 @@ module Services
       @user_service ||= Services::UserService.new(current_user)
     end
 
+    def api_service
+      @api_service ||= Services::ApiService.new(current_user)
+    end
+
   end
 end
