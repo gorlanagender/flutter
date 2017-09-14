@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(_)
+    UserMailer.new.sent_mail(user: current_user)
     home_path
   end
 
