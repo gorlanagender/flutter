@@ -94,8 +94,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
       port: 587,
-      user_name: ENV_PROPS['gmail_username'],
-      password: ENV_PROPS['gmail_password'],
+      user_name: 'twitternew.app@gmail.com',
+      password: 'twitternew',
       authentication: 'plain',
       enable_starttls_auto: true
   }

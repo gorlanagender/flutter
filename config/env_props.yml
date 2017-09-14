@@ -10,5 +10,3 @@ test: &test
 
 production: &production
   <<: *default
-  gmail_username: 'twitternew.app@gmail.com'
-  gmail_password: 'twitternew'
