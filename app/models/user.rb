@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   validates_integrity_of  :avatar
   validates_processing_of :avatar
+  validates :username, uniqueness: true
 
   def following?(other)
     following.include?(other)
