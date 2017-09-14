@@ -35,7 +35,7 @@ module Storage
 
     private
 
-    attr_accessor :url
+    attr_reader :url
 
     def conn
       Faraday.new(url,ssl: {verify: false})

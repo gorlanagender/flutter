@@ -14,12 +14,12 @@ class PostsController < ApplicationController
   end
 
   def follow
-   post_service.follow_user(attrs: follow_params)
+   user_service.follow_user(attrs: follow_params)
    redirect_to request.referrer
   end
 
   def un_follow
-   post_service.unfollow_user(attrs: follow_params)
+   user_service.unfollow_user(attrs: follow_params)
    redirect_to request.referrer
   end
 

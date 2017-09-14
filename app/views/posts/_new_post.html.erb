@@ -8,9 +8,12 @@
       </div>
       <div class="col-xs-11">
         <div class="row">
-          <%= f.text_field :content, class: "panel-background form-control", placeholder: "What's Happening?", style: "margin-left: 18px;"%>
+          <%= f.text_field :content, id: 'content', class: "panel-background form-control", placeholder: "What's Happening?", style: "margin-left: 18px;"%>
         </div>
       </div>
+    </div>
+    <div id='add-post' class="row disabled pull-right hidden add-post">
+      <%= f.submit "Add Post", id: 'post-field', class: 'disabled btn btn-primary'%>
     </div>
     </div>
 <% end %>

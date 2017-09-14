@@ -1,0 +1,28 @@
+<script>
+    jS = (function () {
+        var params = {
+            content: '#content',
+            addPost: '#add-post',
+            postField: '#post-field'
+        };
+
+        $(document).ready(function () {
+            contentOnChange();
+        });
+
+        function contentOnChange() {
+            $(params.content)
+                .focus(function () {
+                    $(params.addPost).removeClass('hidden')
+                })
+                .blur(function () {
+                    $(params.addPost).toggleClass('hidden', !($(params.content).val().length > 0))
+                })
+                .on('keyup keydown', function () {
+                    $(params.postField).toggleClass('disabled', !($(params.content).val().length > 0))
+                });
+        }
+
+    })
+    ();
+</script>
