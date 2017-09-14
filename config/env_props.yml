@@ -1,6 +1,8 @@
 default: &default
   news_feed: https://newsapi.org
   api_key: 0ace9cce758848f8a2eefdf72b04ba14
+  gmail_username: 'twitternew.app@gmail.com'
+  gmail_password: 'twitternew'
 
 development: &development
   <<: *default
