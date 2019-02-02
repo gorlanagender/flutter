@@ -21,3 +21,4 @@ class PagesController < ApplicationController
     @news = api_service.get_news
   end
 end
+
